@@ -1,0 +1,18 @@
+def get_news(link0):
+    page0 = requests.get(link0, verify = False)
+    soup0 = BeautifulSoup(page0.text)
+    title = soup0.find("title").text.replace("\xa0", " ")
+    author = soup0.find("meta", {"name" : "author"}).get("content")
+    date = soup0.find("meta", {"itemprop" : "datePublished"}).get("content")
+    div = soup0.find("div",
+           {"class" : "flex flex-wrap lg:mb-10 gap-2 text-tags xl:pr-9"})
+    diffc = div.find_all("span")[3].text
+    rubs_raw = div.find_all("span")[4:]
+    rubs_list = [r.text for r in rubs_raw]
+    rubs = ", ".join(rubs_list)
+    pars_raw = soup0.find_all("p", {"class" : "mb-6"})[1:]
+    pars_list = [p.text for p in pars_raw]
+    text = " ".join(pars_list)
+    text = text.replace("\xa0", " ").replace("\n", " ")
+    return title, author, date, diffc, rubs, text
+
