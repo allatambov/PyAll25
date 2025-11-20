@@ -1,0 +1,16 @@
+nif_nif = np.array([83, 73, 65]) 
+nif_naf = np.array([34, 56, 40])
+
+creatures = np.array(["niffler", "kneazle", "puffskein"])
+
+scores = pd.Series([150, 0, 20, 0, 30, 20, 0])
+
+scores = pd.Series([150, 0, 20, 0, 30, 20, 0], 
+                   index = ["Harry", "Fred", "Alicia", 
+                            "George", "Katie", "Angelina", "Oliver"])
+
+data_dict = {"Name" : ["Harry", "Fred", "Alicia", 
+                       "George", "Katie", "Angelina", "Oliver"],
+            "Score" : [150,   0,  20,   0,  30,  20,   0],
+            "Status": ["seeker", "beater", "chaser", 
+                       "beater", "chaser", "chaser", "keeper"]}
